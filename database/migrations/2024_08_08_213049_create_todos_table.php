@@ -17,7 +17,7 @@ class CreateTodosTable extends Migration
             $table->id();
             $table->string('title'); // Görev başlığı
             $table->boolean('completed')->default(false); // Görevin tamamlanma durumu
-            $table->timestamps(); // Oluşturulma ve güncellenme zaman damgaları
+            $table->timestamps(); // Oluşturulma ve güncellenme zamanı
         });
     }
 

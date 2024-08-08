@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1>Todo List</h1>
+    <h1>HeyAtlas Todo App</h1>
     <div class="mb-3">
       <input v-model="newTodo" placeholder="Add new todo" class="form-control" />
       <button @click="addTodo" class="btn btn-primary mt-2">Add Todo</button>
@@ -8,7 +8,7 @@
     <ul class="list-group">
       <li v-for="todo in todos" :key="todo.id" class="list-group-item">
         <span :class="{ 'text-decoration-line-through': todo.completed }">{{ todo.title }}</span>
-        <button @click="toggleCompletion(todo)" class="btn btn-sm btn-secondary float-end">Toggle</button>
+        <button @click="toggleCompletion(todo)" class="btn btn-sm btn-secondary float-end">Complate</button>
         <button @click="deleteTodo(todo.id)" class="btn btn-sm btn-danger float-end me-2">Delete</button>
       </li>
     </ul>
