@@ -1,72 +1,72 @@
 <template>
-  <div class="container">
-    <h1>HeyAtlas Todo App</h1>
-    <div class="mb-3">
-      <input v-model="newTodo" placeholder="Add new todo" class="form-control" />
-      <button @click="addTodo" class="btn btn-primary mt-2">Add Todo</button>
+    <div class="todo-container">
+      <header class="header">
+        <div class="header-content">
+          <div class="logo">
+            <h1>HeyAtlas Todo App</h1>
+          </div>
+          <div class="input-container">
+            <input v-model="newTodo" placeholder="Add a new task..." class="todo-input" />
+            <button @click="addTodo" class="add-button">+</button>
+          </div>
+        </div>
+      </header>
+  
+      <ul class="todo-list">
+        <li v-for="todo in todos" :key="todo.id" class="todo-item" :class="{ completed: todo.completed }">
+          <div class="checkbox-container">
+            <input type="checkbox" v-model="todo.completed" @change="updateTodo(todo)" />
+          </div>
+          <span class="col-md-8 todo-title" :class="{ 'text-decoration-line-through': todo.completed }">
+            {{ todo.title }}
+          </span>
+          <button @click="deleteTodo(todo.id)" class="delete-button">Delete</button>
+        </li>
+      </ul>
     </div>
-    <ul class="list-group">
-      <li v-for="todo in todos" :key="todo.id" class="list-group-item">
-        <span :class="{ 'text-decoration-line-through': todo.completed }">{{ todo.title }}</span>
-        <button @click="toggleCompletion(todo)" class="btn btn-sm btn-secondary float-end">Complate</button>
-        <button @click="deleteTodo(todo.id)" class="btn btn-sm btn-danger float-end me-2">Delete</button>
-      </li>
-    </ul>
-  </div>
-</template>
-
-<script>
-import axios from 'axios';
-
-export default {
-  data() {
-    return {
-      todos: [], // Tüm görevlerin tutulduğu dizi
-      newTodo: '', // Yeni eklenecek görev
-    };
-  },
-  methods: {
-    fetchTodos() {
-      // Tüm görevleri API'den çek
-      axios.get('/api/todos')
-        .then(response => {
-          this.todos = response.data;
-        });
+  </template>
+  
+  <script>
+  import axios from 'axios';
+  
+  export default {
+    data() {
+      return {
+        todos: [],
+        newTodo: '',
+      };
     },
-    addTodo() {
-      // Yeni görev ekle
-      if (this.newTodo.trim() === '') return;
-
-      axios.post('/api/todos', { title: this.newTodo })
-        .then(response => {
+    methods: {
+      fetchTodos() {
+        axios.get('/api/todos').then(response => {
+          this.todos = response.data.map(todo => {
+            todo.completed = todo.completed === 1;
+            return todo;
+          });
+        });
+      },
+      addTodo() {
+        if (this.newTodo.trim() === '') return;
+  
+        axios.post('/api/todos', { title: this.newTodo }).then(response => {
           this.todos.push(response.data);
           this.newTodo = '';
         });
-    },
-    toggleCompletion(todo) {
-      // Görevin tamamlanma durumunu değiştir
-      axios.patch(`/api/todos/${todo.id}`, { completed: !todo.completed })
-        .then(response => {
-          todo.completed = response.data.completed;
-        });
-    },
-    deleteTodo(id) {
-      // Görevi sil
-      axios.delete(`/api/todos/${id}`)
-        .then(() => {
+      },
+      deleteTodo(id) {
+        axios.delete(`/api/todos/${id}`).then(() => {
           this.todos = this.todos.filter(todo => todo.id !== id);
         });
-    }
-  },
-  created() {
-    // Bileşen oluşturulduğunda görevleri çek
-    this.fetchTodos();
-  }
-}
-</script>
-
-<style scoped>
-.text-decoration-line-through {
-  text-decoration: line-through;
-}
-</style>
+      },
+      // Checkbox durumunu güncellemek için API isteği
+      updateTodo(todo) {
+        axios.patch(`/api/todos/${todo.id}`, { completed: todo.completed }).then(response => {
+          console.log("Todo updated", response.data);
+        });
+      },
+    },
+    created() {
+      this.fetchTodos();
+    },
+  };
+  </script>

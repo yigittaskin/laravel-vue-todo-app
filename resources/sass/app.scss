@@ -6,3 +6,107 @@
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+
+body {
+    background-color: #e8f5e9;
+}
+
+.todo-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.header {
+    background-color: #33691e;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo .icon {
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.logo h1 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #cddc39;
+}
+
+.input-container {
+    display: flex;
+}
+
+.todo-input {
+    width: 400px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.add-button {
+    background-color: #cddc39;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.todo-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.delete-button {
+    margin-left: auto;
+    background-color: #ff6b6b;
+    border: none;
+    padding: 5px 10px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    &:hover {
+        background-color: red;
+    }
+}
+
+.todo-item.completed {
+    background-color: #dcedc8;
+}
+
+.checkbox-container {
+    margin-right: 10px;
+}
+
+.text-decoration-line-through {
+    text-decoration: line-through;
+    color: gray;
+}
