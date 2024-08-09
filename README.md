@@ -11,7 +11,7 @@ This is a simple Todo List application built using Laravel and Vue.js. The appli
 
 ## Demo Video
 
-![HeyAtlas Todo App Demo Video](readme-assets/heyAtlas_Todo_demo.mp4)
+![HeyAtlas Todo App Demo Video](readme-assets/heyAtlas_demo_video.mp4)
 
 ## Screenshots
 
