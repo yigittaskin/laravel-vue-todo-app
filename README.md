@@ -9,6 +9,15 @@ This is a simple Todo List application built using Laravel and Vue.js. The appli
 - Delete todos from the list
 - View the entire todo list
 
+## Demo Video
+
+![HeyAtlas Todo App Demo Video](readme-assets/heyAtlas_Todo_demo.mp4)
+
+## Screenshots
+
+![Desktop](readme-assets/heyAtlas_Todo_SS.png)
+![Mobile](readme-assets/heyAtlas_Todo_mobile_SS.png)
+
 ## Technologies Used
 
 - **Backend:**
