@@ -8,7 +8,7 @@
 @import 'bootstrap/scss/bootstrap';
 
 body {
-    background-color: #e8f5e9;
+    background-color: #e8f0f5;
 }
 
 .todo-container {
@@ -19,7 +19,7 @@ body {
 }
 
 .header {
-    background-color: #33691e;
+    background-color: #1e3269;
     color: white;
     padding: 20px;
     border-radius: 10px;
@@ -30,6 +30,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @media screen and (max-width: 600px) {
+        display: block;
+    }
 }
 
 .logo {
@@ -45,7 +48,7 @@ body {
 .logo h1 {
     font-size: 16px;
     font-weight: bold;
-    color: #cddc39;
+    color: #39bedc;
 }
 
 .input-container {
@@ -61,7 +64,7 @@ body {
 }
 
 .add-button {
-    background-color: #cddc39;
+    background-color: #39bedc;
     border: none;
     padding: 10px;
     border-radius: 5px;
@@ -99,7 +102,7 @@ body {
 }
 
 .todo-item.completed {
-    background-color: #dcedc8;
+    background-color: #c8e2ed;
 }
 
 .checkbox-container {
