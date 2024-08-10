@@ -4,7 +4,7 @@ This is a simple Todo List application built using Laravel and Vue.js. The appli
 
 ## Live Demo
 
-Check out the live demo of the application [here](http://heyatlas-todo.kodcat.com).
+Check out the live demo of the application [here](http://heyatlas-todo.kodcat.com). (http://heyatlas-todo.kodcat.com)
 
 ## Features
 
