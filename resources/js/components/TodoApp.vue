@@ -40,7 +40,7 @@
       fetchTodos() {
         axios.get('/api/todos').then(response => {
           this.todos = response.data.map(todo => {
-            todo.completed = todo.completed === 1;
+            todo.completed = todo.completed === "1";
             return todo;
           });
         });
