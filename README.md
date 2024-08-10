@@ -2,6 +2,10 @@
 
 This is a simple Todo List application built using Laravel and Vue.js. The application allows users to dynamically add, view, update, and delete todos. This project follows modern development practices, including the use of SOLID principles, PSR-2 coding standards, and the Airbnb JavaScript Style Guide.
 
+## Live Demo
+
+Check out the live demo of the application [here](http://heyatlas-todo.kodcat.com).
+
 ## Features
 
 - Add new todos to the list
